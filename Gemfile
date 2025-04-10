@@ -54,9 +54,9 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'mongoid'
+gem "mongoid"
 
-gem "devise" 
+gem "devise"
 
 gem "dotenv", "~> 3.1"
 
@@ -65,3 +65,5 @@ gem "sidekiq", "~> 8.0"
 gem "tailwindcss-ruby", "~> 4.0"
 
 gem "tailwindcss-rails", "~> 4.2"
+
+gem "view_component", "~> 3.21"

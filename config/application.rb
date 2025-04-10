@@ -21,7 +21,7 @@ Bundler.require(*Rails.groups)
 module MyWebapp
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
-    
+
     Dotenv::Rails.load if defined?(Dotenv)
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0

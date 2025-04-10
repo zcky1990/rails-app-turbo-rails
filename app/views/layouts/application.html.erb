@@ -25,7 +25,7 @@
   <body>
     <main class="flex flex-col md:flex-col lg:flex-col xl:flex-col 2xl:flex-col">
       <% flash.each do |type, message| %>
-        <%= render 'shared/toast', :type=> type, :message=> message %>
+        <%= render Toast::Component.new(type: type, message: message) %>
       <% end %>
       <%= yield %>  
     </main>
