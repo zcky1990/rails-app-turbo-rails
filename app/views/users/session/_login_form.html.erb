@@ -1,0 +1,39 @@
+<div class="flex flex-col gap-6">
+   <div class="rounded-xl border bg-card text-card-foreground shadow">
+      <div class="flex flex-col space-y-1.5 p-6">
+         <div class="font-semibold tracking-tight text-2xl">Login</div>
+         <div class="text-sm text-muted-foreground">Enter your email below to login to your account</div>
+      </div>
+      <div class="p-6 pt-0">
+            <div class="grid gap-6">
+               <%= form_with url: user_session_path, method: :post do |form| %>
+                  <div class="grid gap-6">
+                     <div class="grid gap-2">
+                        <%= form.label :email, "Email:" , :class => 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' %>
+                        <%= form.email_field :email, :class => 'mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm', :placeholder => "example@email.com", :required => true  %>
+                     </div>
+                     <div class="grid gap-2">
+                        <%= form.label :password, "Password:" , 
+                           :class => 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' 
+                        %>
+                        <%= form.password_field :password, 
+                           :class => 'mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm', 
+                           :placeholder => "********", 
+                           :required => true  
+                        %>
+                     </div>
+                     <%= form.submit "Login", 
+                        :class=>"inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-black text-white shadow hover:bg-white hover:text-black hover:border-1 h-9 px-4 py-2 w-full" 
+                     %>
+                  </div>
+               <% end %>
+               <div class="text-center text-sm">
+                  Don't have an account?<!-- --> <a href="<%= new_user_registration_path %>" class="underline underline-offset-4">Sign up</a>
+               </div>
+            </div>
+      </div>
+   </div>
+   <div class="text-balance text-center text-xs text-muted-foreground [&amp;_a]:underline [&amp;_a]:underline-offset-4 [&amp;_a]:hover:text-primary  ">
+      By clicking continue, you agree to our <a href="#">Terms of Service</a> <!-- -->and <a href="#">Privacy Policy</a>.
+   </div>
+</div>

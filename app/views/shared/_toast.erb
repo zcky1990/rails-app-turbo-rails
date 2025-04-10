@@ -1,0 +1,28 @@
+<ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]">
+    <li 
+        role="<%= type %>" 
+        aria-live="off" 
+        aria-atomic="true" 
+        tabindex="0" 
+        data-state="open"
+        data-radix-collection-item=""  
+        data-swipe-direction="right"
+        data-controller="toast" 
+        data-toast-target="toastId"
+        class="group pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md p-6 pr-8 shadow-lg transition-all" 
+        style="user-select: none; touch-action: none;">
+            <div class="grid gap-1">
+                <div class="text-sm opacity-90"><%= message %></div>
+            </div>
+            <button 
+                type="button" 
+                class="absolute right-2 top-2 rounded-md p-1 text-foreground/50 transition-opacity" 
+                data-action="toast#close"
+                data-radix-toast-announce-exclude="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-4 w-4">
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                </svg>
+            </button>
+    </li>
+</ol>

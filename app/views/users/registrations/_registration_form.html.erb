@@ -1,0 +1,92 @@
+<div class="lg:p-8">
+    <div class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+        <div class="flex flex-col space-y-2 text-center">
+            <h1 class="text-2xl font-semibold tracking-tight">Create an account</h1>
+            <p class="text-sm text-muted-foreground">Enter your email below to create your account</p>
+        </div>
+    <div class="grid gap-6">
+        <%= form_with url: user_registration_path, data: { controller: "register" }, method: :post do |form| %>
+            <div class="grid gap-2">
+                <div class="grid gap-2">
+                    <%= form.label :firstname, "First Name:" , :class => 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' %>
+                    <%= form.text_field :firstname, 
+                        :class => 'mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm',
+                        :placeholder => "Jhon",  
+                        :required => true  
+                    %>
+                </div>
+
+                <div class="grid gap-2">
+                    <%= form.label :lastname, "Last Name:" , :class => 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' %>
+                    <%= form.text_field :lastname, 
+                        :class => 'mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm', 
+                        :placeholder => "Doe", 
+                        :required => true  
+                    %>
+                </div>
+
+                <div class="grid gap-2">
+                    <%= form.label :email, "Email:" , 
+                        :class => 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' 
+                    %>
+                    <%= form.email_field :email, 
+                        :class => 'mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm', 
+                        :placeholder => "example@email.com", 
+                        :required => true  
+                    %>
+                </div>
+
+                <div class="grid gap-2">
+                    <%= form.label :birthday, "Birthday:" , 
+                        :class => 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' 
+                    %>
+                    <%= form.date_field :birthday,
+                        :class => 'mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm'
+                    %>
+                </div>
+
+                <div class="grid gap-2">
+                    <%= form.label :phone_number, "Phone Number:" , 
+                        :class => 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' 
+                    %>
+                    <%= form.telephone_field :phone_number, 
+                        :data => { register_target: "phone", action: "input->register#validatePhone" },
+                        :class => 'mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm', 
+                        :required => true  
+                    %>
+                    <div id="phone-message" data-register-target="phoneMessage" class="text-sm"></div>
+                </div>
+
+                <div class="grid gap-2">
+                    <%= form.label :password, "Password:" , 
+                        :class => 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' 
+                    %>
+                    <%= form.password_field :password,  
+                        :data => { register_target: "password", action: "input->register#checkMatch" }, 
+                        :class => 'mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm', 
+                        :placeholder => "********", 
+                        :required => true  
+                    %>
+                </div>
+
+                <div class="grid gap-2">
+                    <%= form.label :password_confirmation, "Confirmation Password:" , 
+                        :class => 'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70' 
+                    %>
+                    <%= form.password_field :password_confirmation, 
+                        :data => { register_target: "confirmation", action: "input->register#checkMatch" }, 
+                        :class => 'mt-0.5 w-full rounded border-gray-300 shadow-sm sm:text-sm', 
+                        :placeholder => "********", 
+                        :required => true  
+                    %>
+                </div>
+
+                <div id="password-message" data-register-target="message" class="text-sm"></div>
+                
+                <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2">Submit</button>
+            </div>
+        <% end %>
+    </div>
+    <p class="px-8 text-center text-sm text-muted-foreground">By clicking continue, you agree to our <a class="underline underline-offset-4 hover:text-primary" href="/terms">Terms of Service</a> and <a class="underline underline-offset-4 hover:text-primary" href="/privacy">Privacy Policy</a>.</p>
+    </div>
+</div>
