@@ -62,7 +62,7 @@ gem "dotenv", "~> 3.1"
 
 gem "sidekiq", "~> 8.0"
 
-gem "tailwindcss-ruby", "~> 4.0"
+gem "tailwindcss-ruby", "~> 4.1"
 
 gem "tailwindcss-rails", "~> 4.2"
 
